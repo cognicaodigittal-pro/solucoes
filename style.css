@@ -567,7 +567,11 @@ footer {
 
 .footer-content h4 {
     margin-bottom: 25px;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .footer-content ul li {
@@ -575,7 +579,7 @@ footer {
 }
 
 .footer-content ul a {
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-content ul a:hover {
