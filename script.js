@@ -1,3 +1,7 @@
+// Mobile Menu Elements
+const mobileBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
 // Intersection Observer for Reveal Animations
 const revealElements = document.querySelectorAll('.reveal');
 
@@ -32,24 +36,32 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Smooth Scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        
         if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
             window.scrollTo({
-                top: target.offsetTop - 80, // Adjust for header height
+                top: offsetPosition,
                 behavior: 'smooth'
             });
+
+            // Close mobile menu if open
+            if (navLinks && navLinks.classList.contains('mobile-active')) {
+                navLinks.classList.remove('mobile-active');
+                mobileBtn.classList.remove('active');
+            }
         }
     });
 });
 
 // Mobile Menu Toggle (Simplified)
-const mobileBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
 if (mobileBtn) {
     mobileBtn.addEventListener('click', () => {
         navLinks.classList.toggle('mobile-active');
