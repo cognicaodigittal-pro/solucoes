@@ -554,15 +554,28 @@ footer {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
     margin-bottom: 60px;
 }
 
+.footer-info .logo {
+    margin-bottom: 20px;
+    margin-left: -10px; /* Aligns visually with the grid line */
+}
+
+.footer-logo {
+    height: 50px; /* Normalized height for alignment */
+    width: auto;
+    display: block;
+    margin-top: -10px; /* Absorbs whitespace to align with h4 tops */
+}
+
 .footer-info p {
-    margin: 20px 0;
+    margin: 15px 0;
     color: var(--text-light);
-    max-width: 300px;
+    max-width: 280px;
+    line-height: 1.6;
 }
 
 .footer-content h4 {
